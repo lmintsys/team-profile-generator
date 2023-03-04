@@ -1,0 +1,26 @@
+header {
+    text-align:center;
+    margin-bottom: 3em;
+    height: 5em;
+    background-color: darkcyan;
+    width: 100%
+}
+
+h1 {
+    line-height: 2.5em;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+p {
+    margin: 0;
+}
+.card {
+    box-shadow:  3px 4px 3px #888888;
+    padding: 2%
+}
+.card-title {
+    padding: 10pxl
+}
