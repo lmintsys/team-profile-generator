@@ -1,6 +1,7 @@
 const Manager = require("../lib/manager");
 const Engineer = require("../lib/engineer");
 const Intern = require("../lib/intern");
+
 function getEmployeesMarkup(employees) {
   let markup = "";
 
@@ -71,32 +72,32 @@ function getInternMarkup(intern) {
   </div>
 </div>`;
 }
+
+function generatePage(employees) {
+  return (
+    `<!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://kit.fontawesome.com/9819181378.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="./style.css" />
-        <title>Team Profile Generator</title>
+        <title>My Team</title>
       </head>
       <body>
         <header>
           <h1>My Team</h1>
-        </header>
-    
-        <main>
-          <div class="card" id="employee">
-            <div class="card-title">
-              <p class="name">Sample Name</p>
-              <p class="role">Sample Role</p>
-            </div>
-            <div class="card-info">
-              <div class="id">Sample ID</div>
-              <div class="email">Sample Email</div>
-              <div class="3rd-info">Sample info</div>
-            </div>
-          </div>
+          </header>
+          <main>
+          ` +
+    getEmployeesMarkup(employees) +
+    `
+          
         </main>
       </body>
-    </html>`;
+    </html>`
+  );
 }
+
+module.exports = generatePage;
