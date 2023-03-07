@@ -1,6 +1,21 @@
 const Manager = require("../lib/manager");
 const Engineer = require("../lib/engineer");
 const Intern = require("../lib/intern");
+function getEmployeesMarkup(employees) {
+  let markup = "";
+
+  employees.forEach((employee) => {
+    if (employee instanceof Manager) {
+      markup += getManagerMarkup(employee);
+    } else if (employee instanceof Engineer) {
+      markup += getEngineerMarkup(employee);
+    } else if (employee instanceof Intern) {
+      markup += getInternMarkup(employee);
+    }
+  });
+  return markup;
+}
+
 function getManagerMarkup(manager) {
   return `<div class="card" id="employee">
   <div class="card-title">
