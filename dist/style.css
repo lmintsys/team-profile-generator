@@ -1,26 +1,69 @@
+*{
+    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+}
 header {
-    text-align:center;
+    display:flex;
+    align-content: center;
+    justify-content:center;
     margin-bottom: 3em;
     height: 5em;
-    background-color: darkcyan;
+    background-color: rgb(210, 102, 0);
     width: 100%
 }
 
 h1 {
-    line-height: 2.5em;
+   color: white;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+h3 {
+    margin: 0;
+    font-size: 1em;
 }
 
 main {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
+
 p {
     margin: 0;
 }
+
 .card {
     box-shadow:  3px 4px 3px #888888;
-    padding: 2%
+    margin: 1em;
+    width: 10em;
+    height: 12em;
+    display: flex;
+    background-color:#fcf4eb;
+    flex-direction: column;
 }
+
 .card-title {
-    padding: 10pxl
+    background-color: #2c2c8e;
+    color: white;
+}
+
+#card-title-txt {
+    padding: 10px;
+}
+
+.card-info {
+    width: 80%;
+    margin: 10%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.card-info-row {
+    border: solid 1px grey;
+    font-size: 0.7em;
+    padding: 5px;
 }
