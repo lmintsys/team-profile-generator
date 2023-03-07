@@ -1,5 +1,61 @@
-function generatePage(data) {
-  return `<!DOCTYPE html>
+const Manager = require("../lib/manager");
+const Engineer = require("../lib/engineer");
+const Intern = require("../lib/intern");
+function getManagerMarkup(manager) {
+  return `<div class="card" id="employee">
+  <div class="card-title">
+    <div id="card-title-txt">
+      <h2 class="name">${manager.name}</h2>
+      <h3 class="role"><i class="fa-solid fa-mug-hot"></i> ${manager.getRole()}</h3>
+    </div>
+  </div>
+  <div class="card-info">
+    <div class="card-info-row" id="id">${manager.id}</div>
+    <div class="card-info-row" id="email"><a href="mailto:${manager.email}">${
+    manager.email
+  }</a></div>
+    <div class="card-info-row" id="office-number">${manager.officeNumber}</div>
+  </div>
+</div>`;
+}
+
+function getEngineerMarkup(engineer) {
+  return `<div class="card" id="employee">
+  <div class="card-title">
+    <div id="card-title-txt">
+      <h2 class="name">${engineer.name}</h2>
+      <h3 class="role"><i class="fa-solid fa-glasses"></i> ${engineer.getRole()}</h3>
+    </div>
+  </div>
+  <div class="card-info">
+    <div class="card-info-row" id="id">${engineer.id}</div>
+    <div class="card-info-row" id="email"><a href="mailto:${engineer.email}">${
+    engineer.email
+  }</a></div>
+    <div class="card-info-row" id="github"><a href="https://github.com/${
+      engineer.github
+    }">${engineer.github}</a></div>
+  </div>
+</div>`;
+}
+
+function getInternMarkup(intern) {
+  return `<div class="card" id="employee">
+  <div class="card-title">
+    <div id="card-title-txt">
+      <h2 class="name">${intern.name}</h2>
+      <h3 class="role"><i class="fa-solid fa-graduation-cap"></i> ${intern.getRole()}</h3>
+    </div>
+  </div>
+  <div class="card-info">
+    <div class="card-info-row" id="id">${intern.id}</div>
+    <div class="card-info-row" id="email"><a href="mailto:${intern.email}">${
+    intern.email
+  }</a></div>
+    <div class="card-info-row" id="school">${intern.school}</div>
+  </div>
+</div>`;
+}
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
