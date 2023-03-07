@@ -12,9 +12,9 @@ To create this generator, the 8.2.4 version of the Inquirer NPM and Jest.js test
 
 ## Usage
 
-A user will be prompted with a series of questions. When the app starts, the user will be asked to enter manager info, following which a menu will appear. In the menu, the user will be able to choose to either add another employee (engineer or intern) or to finish building the team.The user may add as many employees as they wish and once they decide to finish building the team, an HTML file will be created. The file will include cards for the manager and each of the added employees. The cards will include the following info for all employees: name, id, role, and email. In addition, for engineers, there will be a link to their GitHub profile, and for interns, a name of their school will appear on the card.
-![questions](assets/questions.png)
-![team page](assets/team-page.png)
+A user will be prompted with a series of questions. When the app starts, the user will be asked to enter manager info, following which a menu will appear. In the menu, the user will be able to choose to either add another employee (engineer or intern) or to finish building the team.The user may add as many employees as they wish and once they decide to finish building the team, an HTML file will be created. The file will include cards for the manager and each of the added employees. The cards will include the following info for all employees: name, id, role, and email. In addition, for engineers, there will be a link to their GitHub profile, and for interns, a name of their school will appear on the card.  
+![questions](assets/questions.png)  
+![team page](assets/team-page.png)  
 [Walkthrough video](https://watch.screencastify.com/v/XSus5j0BOUJ7G43HSjo3)
 
 ## Credits
