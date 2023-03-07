@@ -213,3 +213,10 @@ function addIntern() {
   });
 }
 
+addManager();
+
+function createHTML(employees) {
+  fs.writeFile("./dist/new-team.html", generatePage(employees), (err) => {
+    err ? console.log(err) : console.log("Your team is generated!");
+  });
+}
