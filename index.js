@@ -167,6 +167,7 @@ const internQuestions = [
   },
 ];
 
+//Starts the application with manager queations
 function addManager() {
   inquirer.prompt(managerQuestions).then((answers) => {
     const manager = new Manager(
@@ -213,10 +214,31 @@ function addIntern() {
   });
 }
 
-addManager();
+function addEmployee() {
+  inquirer.prompt(addEmployeeMenu).then((answer) => {
+    switch (answer.menu) {
+      case "Add engineer":
+        addEngineer();
+
+        break;
+
+      case "Add intern":
+        addIntern();
+
+        break;
+
+      case "Finish building my team":
+      default:
+        createHTML(employees);
+        break;
+    }
+  });
+}
 
 function createHTML(employees) {
   fs.writeFile("./dist/new-team.html", generatePage(employees), (err) => {
     err ? console.log(err) : console.log("Your team is generated!");
   });
 }
+
+addManager();
