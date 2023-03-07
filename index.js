@@ -166,3 +166,50 @@ const internQuestions = [
     },
   },
 ];
+
+function addManager() {
+  inquirer.prompt(managerQuestions).then((answers) => {
+    const manager = new Manager(
+      answers.name,
+      answers.id,
+      answers.email,
+      answers.officeNumber
+    );
+
+    employees.push(manager);
+
+    console.log(`The manager ${answers.name} was added to your team`);
+    addEmployee();
+  });
+}
+
+function addEngineer() {
+  inquirer.prompt(engineerQuestions).then((answers) => {
+    const engineer = new Engineer(
+      answers.name,
+      answers.id,
+      answers.email,
+      answers.github
+    );
+
+    employees.push(engineer);
+    console.log(`The engineer ${answers.name} was added to your team`);
+    addEmployee();
+  });
+}
+
+function addIntern() {
+  inquirer.prompt(internQuestions).then((answers) => {
+    const intern = new Intern(
+      answers.name,
+      answers.id,
+      answers.email,
+      answers.school
+    );
+
+    employees.push(intern);
+    console.log(`The intern ${answers.name} was added to your team`);
+    addEmployee();
+  });
+}
+
