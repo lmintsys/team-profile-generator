@@ -170,7 +170,7 @@ const internQuestions = [
   },
 ];
 
-//Application starts with manager questions
+//Application starts with manager questions and add a new manager to "employees" array
 function addManager() {
   inquirer.prompt(managerQuestions).then((answers) => {
     const manager = new Manager(
@@ -191,7 +191,7 @@ function addManager() {
   });
 }
 
-//
+// Ask engineer questions and add a new engineer to "employees" array
 function addEngineer() {
   inquirer.prompt(engineerQuestions).then((answers) => {
     const engineer = new Engineer(
@@ -211,6 +211,7 @@ function addEngineer() {
   });
 }
 
+// Ask intern questions and add a new intern to "employees" array
 function addIntern() {
   inquirer.prompt(internQuestions).then((answers) => {
     const intern = new Intern(
@@ -230,6 +231,7 @@ function addIntern() {
   });
 }
 
+// Call functions to add employees or create HTML based on user's choice from menu
 function addEmployee() {
   inquirer.prompt(addEmployeeMenu).then((answer) => {
     switch (answer.menu) {
@@ -251,6 +253,7 @@ function addEmployee() {
   });
 }
 
+// Create HTML file when user finished building team
 function createHTML(employees) {
   fs.writeFile("./dist/new-team.html", generatePage(employees), (err) => {
     err
@@ -263,6 +266,7 @@ function createHTML(employees) {
   });
 }
 
+//Initiate app
 init();
 
 function init() {
