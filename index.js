@@ -44,7 +44,7 @@ const managerQuestions = [
     message: "Enter manager's email",
     name: "email",
     validate(value) {
-      const pass = value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
+      const pass = value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/); //validate email
       if (pass && value) {
         return true;
       }
@@ -57,6 +57,7 @@ const managerQuestions = [
     name: "officeNumber",
     validate(value) {
       const pass = value.match(
+        //validate phone number
         /^([01]{1})?[-.\s]?\(?(\d{3})\)?[-.\s]?(\d{3})[-.\s]?(\d{4})\s?((?:#|ext\.?\s?|x\.?\s?){1}(?:\d+)?)?$/i
       );
       if (pass && value) {
@@ -74,6 +75,7 @@ const engineerQuestions = [
     name: "name",
     validate(value) {
       if (value && value !== /\d+/) {
+        //validate name not to have numbers and not to be empty
         return true;
       }
 
@@ -86,6 +88,7 @@ const engineerQuestions = [
     name: "id",
     validate(value) {
       if (isNaN(value) || value === "") {
+        //validate id to be a number and not empty
         return "Please enter a number";
       }
       return true;
@@ -167,7 +170,7 @@ const internQuestions = [
   },
 ];
 
-//Starts the application with manager queations
+//Application starts with manager questions
 function addManager() {
   inquirer.prompt(managerQuestions).then((answers) => {
     const manager = new Manager(
@@ -179,11 +182,16 @@ function addManager() {
 
     employees.push(manager);
 
-    console.log(`The manager ${answers.name} was added to your team`);
+    console.log(`
+    -----------------------------------------------------
+     The manager ${answers.name} was added to your team
+    -----------------------------------------------------
+    `);
     addEmployee();
   });
 }
 
+//
 function addEngineer() {
   inquirer.prompt(engineerQuestions).then((answers) => {
     const engineer = new Engineer(
@@ -194,7 +202,11 @@ function addEngineer() {
     );
 
     employees.push(engineer);
-    console.log(`The engineer ${answers.name} was added to your team`);
+    console.log(`
+    -----------------------------------------------------
+     The engineer ${answers.name} was added to your team
+    -----------------------------------------------------
+     `);
     addEmployee();
   });
 }
@@ -209,7 +221,11 @@ function addIntern() {
     );
 
     employees.push(intern);
-    console.log(`The intern ${answers.name} was added to your team`);
+    console.log(`
+    ---------------------------------------------------
+     The intern ${answers.name} was added to your team
+    ---------------------------------------------------
+    `);
     addEmployee();
   });
 }
@@ -237,8 +253,23 @@ function addEmployee() {
 
 function createHTML(employees) {
   fs.writeFile("./dist/new-team.html", generatePage(employees), (err) => {
-    err ? console.log(err) : console.log("Your team is generated!");
+    err
+      ? console.log(err)
+      : console.log(`
+    -------------------------
+     Your team is generated!
+    -------------------------
+    `);
   });
 }
 
-addManager();
+init();
+
+function init() {
+  console.log(`
+  -------------------------------------------------
+   Team Profile Generator - let's build your team!
+  -------------------------------------------------
+  `);
+  addManager();
+}
